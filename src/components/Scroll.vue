@@ -64,6 +64,8 @@ export default {
     },
     handleWheel(ev) {
       ev.preventDefault()
+      if (document.body.classList.contains('no-scroll'))
+        return
       const {y} = getScrollPx(ev)
       const delta = this.factor * y / this.windowHeight
       const progress = withinRange(0, this.total)(this.value + delta)
@@ -105,6 +107,7 @@ export default {
   max-width: 12px
   top: 0
   right: 0
+  z-index: 9999
 .indicator
   position: relative
   opacity: .4
