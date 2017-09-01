@@ -1,5 +1,6 @@
 <template>
   <div class="scrollbar" :style="scrollbarStyle">
+    <TouchToWheel @wheel="handleWheel" />
     <div class="indicator y" ref="y" :style="indicatorYStyle" :active="Boolean(activeTimeout)">
     </div>
   </div>
@@ -9,8 +10,12 @@
 import getComputed from '../lib/get-computed-style'
 import getScrollPx from '../lib/get-scroll-px'
 import withinRange from '../lib/within-range'
+import TouchToWheel from './TouchToWheel'
 
 export default {
+  components: {
+    TouchToWheel 
+  },
   props: {
     hash: {
       type: Boolean,
