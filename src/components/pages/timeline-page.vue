@@ -75,6 +75,7 @@ export default {
       if (this.progress < FADE_RANGE || this.progress > 1 - FADE_RANGE) {
         const fadePercentage = Math.round(100 *  Math.min(this.progress, 1 - this.progress) / FADE_RANGE)
         return {
+          display: this.progress === 0 || this.progress === 1 ? 'none' : 'block',
           filter: `opacity(${fadePercentage}%)`
         }
       }
@@ -142,7 +143,7 @@ margin-horz = 5
     .dot
       width: 12pt
       height: 12pt
-      background-color: #efefef
+      background-color: #AFDCFF
       z-index: 2
       border-radius: 50%
       top: start-offset
@@ -150,7 +151,7 @@ margin-horz = 5
     .line
       height: 100%
       width: 4pt
-      background-color: #999
+      background-color: #58B7FF
       z-index: 1
       transform: translate(-50%, 0)
 

@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5
   color: #fff
   font-size: 120%
 .background
-  background-image: url('../../../static/star-trail.jpg')
+  background-image: url('../../../static/star-trail-2.jpg')
   background-size: cover
   background-attachment: scroll
   background-position: center

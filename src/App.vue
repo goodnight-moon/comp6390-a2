@@ -5,7 +5,7 @@
 
     <ScrollShowcase :progress="progress" :pages="pages" />
 
-    <ScrollHint v-if="this.progress < 1" @click="nextPage"/>
+    <ScrollHint @click="nextPage" />
 
   </div>
 </template>

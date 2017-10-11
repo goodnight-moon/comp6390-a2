@@ -9,7 +9,7 @@
       Macdonnell imported the telescope to Port Macquarie in New South Wales. There he installed it in a purpose-built observatory behind the Bank of New South Wales, where he worked as manager, and turned it to the heavens.
     </p>
 
-    <div class="background" style="background-color: blue" slot="background"></div>
+    <div class="background" slot="background"></div>
 
   </Timeline>
 </template>
@@ -29,6 +29,17 @@ export default {
 }    
 </script>
 
-<style lang="stylus">
-    
+<style lang="stylus" scoped>
+.background
+  background-image: url('http://www.nma.gov.au/__data/assets/image/0016/3850/macdonnell_480w.jpg')
+  background-size: cover
+  background-attachment: scroll
+  background-position: center
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: -1
+  filter: brightness(0.4)
 </style>

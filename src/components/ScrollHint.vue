@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" @click="handleClick">
     <icon name="angle-double-down" class="icon" />
   </div>
 </template>
@@ -8,7 +8,8 @@
 import 'vue-awesome/icons/angle-double-down'
 export default {
   methods: {
-    handleClick() {
+    handleClick(ev) {
+      this.$emit('click')
     }
   }
 }
@@ -40,7 +41,7 @@ offset = 30%
   transform: translate(-50%, 0) scale(1.5, 1.2)
   transform-origin: center center
   color: #000
-  opacity: .4
+  opacity: .6
 
 .icon
   width: 100%
@@ -50,4 +51,5 @@ offset = 30%
   animation-direction: normal
   animation-timing-function: ease-in-out
   animation-iteration-count: infinite
+  color: white
 </style>
