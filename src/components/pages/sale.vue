@@ -2,12 +2,15 @@
   <Timeline time="1890" location="Port Macquarie, NSW" :progress="progress">
 
     <p>
-      Financial Crisis <br>
-      TODO: link to financial crisis
+      Australian Financial Crisis
     </p>
 
     <p>
       Macdonnell was forced to sell the instrument.
+    </p>
+
+    <p style="margin-top: 2em">You can know more about the event
+      <a target="_blank" href="https://en.wikipedia.org/wiki/Australian_banking_crisis_of_1893">here (wikipedia)</a>
     </p>
 
     <div class="background" style="background-color: red" slot="background"></div>
@@ -31,5 +34,6 @@ export default {
 </script>
 
 <style lang="stylus">
-    
+a:hover, a:visited, a:active
+  color: inherit
 </style>
