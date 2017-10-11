@@ -24,6 +24,7 @@
     "vue-router": "^2.6.0"
   },
   "devDependencies": {
+    "@tweenjs/tween.js": "^17.1.1",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-loader": "^7.1.1",

@@ -5,7 +5,7 @@
 
     <ScrollShowcase :progress="progress" :pages="pages" />
 
-    <ScrollHint @click="nextPage" />
+    <ScrollHint v-if="progress < this.total - 0.6" @click="nextPage" />
 
   </div>
 </template>
@@ -23,6 +23,7 @@ import SydneyOwner from './components/pages/sydney-owner'
 import Storage from './components/pages/storage'
 import Restoration from './components/pages/restoration'
 import Thanks from './components/pages/thanks'
+import Tween from '@tweenjs/tween.js'
 
 export default {
   name: 'app',
@@ -46,7 +47,28 @@ export default {
   },
   methods: {
     nextPage() {
+      const progObj = { progress: this.progress }
+      const curPage = Math.floor(this.progress / 0.8)
+      const targProg = curPage === 0 ? 1 : curPage + 0.8
+      const tween = new Tween.Tween(progObj)
+        .to({ progress: targProg }, 1000)
+        .easing(Tween.Easing.Quartic.Out)
+        .onUpdate(() => {
+          this.progress = progObj.progress
+        })
+      tween.start()
 
+      let animation
+      let animate = (time) => {
+        animation = window.requestAnimationFrame(time => {
+          window.requestAnimationFrame(animate)
+          if (!Tween.update(time)) {
+            window.cancelAnimationFrame(animation)
+          }
+        })
+      }
+
+      window.requestAnimationFrame( animate )
     }
   }
 }

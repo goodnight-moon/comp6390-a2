@@ -44,6 +44,7 @@ offset = 30%
   opacity: .6
 
 .icon
+  cursor: pointer
   width: 100%
   height: 100%
   animation-name: scroll-hint

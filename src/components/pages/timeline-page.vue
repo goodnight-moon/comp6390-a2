@@ -62,28 +62,37 @@ export default {
   },
   data() {
     return {
-      showMore: false
+      showMore: false,
+      iProgress: this.progress
+    }
+  },
+  watch: {
+    progress() {
+      // request animation frame
+      window.requestAnimationFrame(() => {
+        this.iProgress = this.progress
+      });
     }
   },
   computed: {
     pageStyle() {
-      if (this.progress === 0 || this.progress === 1) {
+      if (this.iProgress === 0 || this.iProgress === 1) {
         return { display: 'none' }
       }
     },
     backgroundStyle() {
-      if (this.progress < FADE_RANGE || this.progress > 1 - FADE_RANGE) {
-        const fadePercentage = Math.round(100 *  Math.min(this.progress, 1 - this.progress) / FADE_RANGE)
+      if (this.iProgress < FADE_RANGE || this.iProgress > 1 - FADE_RANGE) {
+        const fadePercentage = Math.round(100 *  Math.min(this.iProgress, 1 - this.iProgress) / FADE_RANGE)
         return {
-          display: this.progress === 0 || this.progress === 1 ? 'none' : 'block',
+          display: this.iProgress === 0 || this.iProgress === 1 ? 'none' : 'block',
           filter: `opacity(${fadePercentage}%)`
         }
       }
     },
     containerStyle() {
-      if (this.progress < FADE_RANGE || this.progress > 1 - FADE_RANGE) {
-        const percentage = 100 - Math.round(100 *  Math.min(this.progress, 1 - this.progress) / FADE_RANGE)
-        const translatePercentage = this.progress < FADE_RANGE ? percentage : -percentage
+      if (this.iProgress < FADE_RANGE || this.iProgress > 1 - FADE_RANGE) {
+        const percentage = 100 - Math.round(100 *  Math.min(this.iProgress, 1 - this.iProgress) / FADE_RANGE)
+        const translatePercentage = this.iProgress < FADE_RANGE ? percentage : -percentage
         return {
           transform: `translate3d(0, ${translatePercentage}%, 0)`
         }
